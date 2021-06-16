@@ -1,0 +1,228 @@
+@import "./Grid.css";
+
+:root {
+  --baseSansFontSize: 14;
+}
+
+.sensor-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  column-gap: calc(var(--columnGap) * 1.2);
+  row-gap: var(--rowGap);
+  align-items: flex-start;
+}
+[span="row"] {
+  grid-column: 1/-1;
+}
+
+header {
+  grid-column: 1/-1;
+}
+
+.desc {
+  max-width: 30rem;
+}
+.icons svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.github {
+  margin-right: 1rem;
+}
+
+.sensor-cnt {
+  background-color: rgba(var(--foregroundColor-rgb), 0.03);
+  background: #f6f8fa;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0 -1rem;
+}
+.sensor-cnt header span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .sensor-wrapper {
+    row-gap: calc(var(--rowGap) / 2);
+  }
+  .sensor-wrapper > header h4 {
+    padding-bottom: 1rem;
+  }
+  .sensor-cnt {
+    padding: 0.8rem 0.8rem;
+    margin: 0 -0.8rem;
+  }
+  .sensor-cnt header span {
+    font-weight: 500;
+  }
+}
+
+.dark .sensor-cnt {
+  background: var(--depth2);
+}
+
+.sensor-cnt header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sensor-cnt header .rhs {
+  margin-left: auto;
+  display: flex;
+  align-content: center;
+  white-space: nowrap;
+}
+
+.reading {
+  padding-top: 1rem;
+  font-family: var(--monoFont);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: calc(var(--baseUnit) / 4);
+  row-gap: calc(var(--rowGap) / 4);
+  display: none;
+}
+.sensor-cnt.active .reading {
+  display: block;
+}
+.reading label {
+  font-weight: 500;
+}
+
+.error {
+  color: var(--red);
+  font-weight: 500;
+  margin-top: 1rem;
+  text-overflow: ellipsis;
+  display: none;
+  font-size: 0.9rem;
+  font-family: var(--monoFont);
+  display: none;
+}
+
+.freq-sel {
+  display: none;
+  margin-right: 1rem;
+}
+
+.select-cnt {
+  width: 3.7rem;
+  overflow: hidden;
+  position: relative;
+}
+.select-cnt:after {
+  width: 0;
+  height: 0;
+  border-left: 0.3rem solid transparent;
+  border-right: 0.3rem solid transparent;
+  border-top: 0.35rem solid var(--foregroundColor);
+  position: absolute;
+  top: 46%;
+  right: 5px;
+  content: "";
+  z-index: 4;
+}
+.select-cnt select {
+  width: 10rem;
+  border: 0;
+  outline: none;
+  position: relative;
+  color: var(--foregroundColor);
+  z-index: 5;
+  background: none;
+  font-size: 0.9rem;
+  font-family: var(--monoFont);
+}
+
+/* Switch
+----------------------- */
+.switch {
+  position: relative;
+  height: 1.4285714286rem;
+  width: 2.5714285714rem;
+}
+
+.switch-cnt {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 4.1666666667rem;
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  background-color: rgba(var(--foregroundColor-rgb), 0.1);
+}
+.dark .switch-cnt {
+  background-color: rgba(var(--foregroundColor-rgb), 0.2);
+}
+
+.switch-inp:checked + .switch-cnt {
+  justify-content: flex-end;
+  background-color: var(--green);
+}
+
+.switch input {
+  appearance: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 0;
+  z-index: 1;
+}
+
+.switch .thumb {
+  background-color: var(--backgroundColor);
+  border-radius: 50%;
+  height: 1.1428571429rem;
+  width: 1.1428571429rem;
+  margin: 0.1666666667rem;
+}
+
+.switch-inp:checked + .switch-cnt .thumb {
+  background: white;
+}
+
+/* footer
+----------------------- */
+
+footer {
+  margin: calc(-1 * var(--bodyPadding));
+  margin-top: 0;
+  margin-bottom: calc(-1 * var(--baseUnit) * 3);
+  padding: var(--bodyPadding);
+  background: rgba(var(--foregroundColor-rgb), 0.03);
+  display: grid;
+  grid-template-columns: minmax(0, 28rem) 1fr;
+  column-gap: var(--columnGap);
+  row-gap: var(--rowGap);
+}
+
+@media only screen and (max-width: 750px) {
+  footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spec-links {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: calc(var(--baseUnit) * 3);
+  row-gap: 0.5rem;
+  justify-items: flex-start;
+  justify-content: flex-start;
+}

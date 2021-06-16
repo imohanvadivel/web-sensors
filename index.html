@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="description" content="Read on-device sensor's data with Generic Sensor API">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <title>Web Sensors</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <main>
+      <header span="row">
+        <h1>Sensors for the web</h1>
+        <p class="desc">
+
+            A fun little project with Generic Sensor API. Open this application
+            on devices with built-in sensors like a mobile, tablet, or even in
+            your car dashboard to access its sensor's data. <br />
+            <b>Note:</b> Support for accessing sensors depends on browsers.
+
+          <div class="flex-h center icons">
+            <a
+              class="github flex center"
+              target="_blank"
+              href="https://github.com/imohanvadivel/Web-Sensors"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11.9996 1.50002C9.5068 1.50035 7.09544 2.38755 5.19686 4.00291C3.29828 5.61827 2.03634 7.85641 1.63677 10.317C1.2372 12.7775 1.72607 15.3 3.01593 17.4331C4.30579 19.5662 6.3125 21.1709 8.67709 21.96C9.20209 22.0575 9.42709 21.735 9.42709 21.4575C9.42709 21.18 9.42709 20.55 9.42709 19.6725C6.50959 20.3025 5.89459 18.2625 5.89459 18.2625C5.68943 17.6196 5.25763 17.0732 4.67959 16.725C3.72709 16.08 4.75459 16.0875 4.75459 16.0875C5.08729 16.1345 5.40485 16.2569 5.68302 16.4454C5.96119 16.6339 6.1926 16.8834 6.35959 17.175C6.65009 17.6961 7.13564 18.0804 7.70946 18.2436C8.28328 18.4067 8.89841 18.3353 9.41959 18.045C9.46193 17.5129 9.69654 17.0143 10.0796 16.6425C7.75459 16.3725 5.30209 15.4725 5.30209 11.4525C5.28508 10.4084 5.67201 9.39814 6.38209 8.63252C6.06068 7.72816 6.09826 6.735 6.48709 5.85752C6.48709 5.85752 7.36459 5.57252 9.37459 6.93002C11.0932 6.46123 12.906 6.46123 14.6246 6.93002C16.6271 5.57252 17.5046 5.85752 17.5046 5.85752C17.8934 6.735 17.931 7.72816 17.6096 8.63252C18.3197 9.39814 18.7066 10.4084 18.6896 11.4525C18.6896 15.4875 16.2371 16.3725 13.8971 16.635C14.1478 16.8891 14.341 17.1939 14.464 17.529C14.5869 17.8641 14.6365 18.2216 14.6096 18.5775C14.6096 19.98 14.6096 21.1125 14.6096 21.4575C14.6096 21.8025 14.7971 22.065 15.3596 21.96C17.7273 21.1699 19.7361 19.5622 21.0257 17.4251C22.3154 15.2881 22.8016 12.7615 22.3971 10.2984C21.9926 7.83535 20.7239 5.59695 18.8185 3.98459C16.9131 2.37224 14.4956 1.49139 11.9996 1.50002V1.50002Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+              </svg>
+            </a>
+            <a
+              id="darkMode-toggle"
+              class="flex center"
+              href="javascript:void(0)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.75 1.5H11.25V3.75H12.75V1.5Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M22.5 11.25H20.25V12.75H22.5V11.25Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M12.75 20.25H11.25V22.5H12.75V20.25Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M3.75 11.25H1.5V12.75H3.75V11.25Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M5.14806 4.102L4.0874 5.16266L5.67839 6.75365L6.73905 5.69299L5.14806 4.102Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M18.841 4.09466L17.25 5.68565L18.3107 6.74631L19.9017 5.15532L18.841 4.09466Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M18.3131 17.2517L17.2524 18.3123L18.8434 19.9033L19.9041 18.8427L18.3131 17.2517Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M4.10254 18.8475L5.69254 17.25L6.75004 18.315L5.16004 19.905L4.10254 18.8475Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+                <path
+                  d="M12 6C10.8133 6 9.65328 6.35189 8.66658 7.01118C7.67989 7.67047 6.91085 8.60754 6.45673 9.7039C6.0026 10.8003 5.88378 12.0067 6.11529 13.1705C6.3468 14.3344 6.91825 15.4035 7.75736 16.2426C8.59648 17.0818 9.66557 17.6532 10.8295 17.8847C11.9933 18.1162 13.1997 17.9974 14.2961 17.5433C15.3925 17.0892 16.3295 16.3201 16.9888 15.3334C17.6481 14.3467 18 13.1867 18 12C18 10.4087 17.3679 8.88258 16.2426 7.75736C15.1174 6.63214 13.5913 6 12 6ZM12 16.5C10.8065 16.5 9.66194 16.0259 8.81802 15.182C7.97411 14.3381 7.5 13.1935 7.5 12C7.5 10.8065 7.97411 9.66193 8.81802 8.81802C9.66194 7.97411 10.8065 7.5 12 7.5V16.5Z"
+                  fill="var(--foregroundColor)"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </p>
+      </header>
+      <div span="row" aria-hidden="true" class="h-3">&nbsp;</div>
+      <article class="sensor-wrapper"></article>
+    </main>
+    <div span="row" aria-hidden="true" class="h-5">&nbsp;</div>
+
+    <footer>
+      <section class="privacy">
+      <h4>Privacy</h4>
+        <p>This application entirely runs locally on the client and can even run without the internet. The sensor's data aren't stored or transferred externally.</p>
+      </section>
+      <section class="specs">
+        <h4>Specifications</h4>
+        <div class="spec-links">
+          <a href="https://www.w3.org/TR/generic-sensor/" target="_blank">Generic Sensor Api</a>
+          <a href="https://www.w3.org/TR/geolocation-sensor/" target="_blank">Geolocation Sensor</a>
+          <a href="https://www.w3.org/TR/ambient-light/" target="_blank">Ambient Light Sensor</a>
+          <a href="https://www.w3.org/TR/magnetometer/" target="_blank">Magnetometer</a>
+          <a href="https://www.w3.org/TR/gyroscope/" target="_blank">Gyroscope</a>
+          <a href="https://www.w3.org/TR/accelerometer/" target="_blank">Accelerometer</a>
+          <a href="https://www.w3.org/TR/orientation-sensor/" target="_blank">Orientation Sensor</a>
+        </div>
+      </section>
+    </footer>
+  </body>
+  <script src="./dist/script.js"></script>
+</html>
