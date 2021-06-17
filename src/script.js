@@ -32,6 +32,7 @@ let sensorList = [
   { name: "Gyroscope", label: "Gyroscope", type: "low-level" },
   { name: "Magnetometer", label: "Magnetometer", type: "low-level" },
   { name: "Geolocation", label: "Geolocation", type: "low-level" },
+  { name: "ProximitySensor", label: "Proximity Sensor", type: "low-level" },
   {
     name: "AbsoluteOrientationSensor",
     label: "Absolute Orientation Sensor",
@@ -59,7 +60,9 @@ let sensorList = [
       <span>${ss.label}</span>
       <div class="rhs">
       ${
-        ss.name !== "AmbientLightSensor" && ss.name !== "Geolocation"
+        ss.name !== "AmbientLightSensor" &&
+        ss.name !== "Geolocation" &&
+        ss.name !== "ProximitySensor"
           ? `<div class="freq-sel">
         <label class="opacity5" for="frequency">freq:</label>
         <div class="select-cnt">

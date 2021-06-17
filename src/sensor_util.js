@@ -103,14 +103,11 @@ export class CreateSensor {
 
         case "Geolocation":
           this.sensor = new GeolocationSensor();
-          this.sensor.onreading = (ev) =>
-            this.setReading(
-              this.sensor.latitude,
-              this.sensor.longitude,
-              this.sensor.altitude,
-              this.sensor.heading,
-              this.sensor.speed
-            );
+          this.freq_dep = false;
+          break;
+
+        case "ProximitySensor":
+          this.sensor = new ProximitySensor();
           this.freq_dep = false;
           break;
 
@@ -261,6 +258,17 @@ export class CreateSensor {
         <output>: ${this.sensor.speed.toFixed(8)}</output>`;
 
       this.readingPane.innerHTML = lat + lon + alt + head + speed;
+      return;
+    }
+
+    if (this.sensorType === "ProximitySensor") {
+      this.readingPane.innerHTML = `
+      <label>Objects Nearby</label>
+      <output>: ${this.sensor.near}</output>
+      <label>Distance</label>
+      <output>: ${this.sensor.distance}</output>
+      <label>Max</label>
+      <output>: ${this.sensor.max}</output>`;
       return;
     }
 
