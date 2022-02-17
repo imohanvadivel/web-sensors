@@ -1,15 +1,19 @@
 {
   "name": "web-sensors",
-  "version": "1.0.0",
-  "main": "index.js",
+  "description": "Read on-device sensors data with Web Generic Sensor API",
   "repository": "https://github.com/imohanvadivel/Web-Sensors.git",
   "author": "Mohan Vadivel <mohanvadivel@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "esbuild src/script.js src/style.css --bundle --watch --sourcemap --outdir=./dist --external:*.woff --external:*.woff2 --external:*.ttf --external:*.otf",
-    "build": "esbuild src/script.js src/style.css --bundle --minify --outdir=./dist --external:*.woff --external:*.woff2 --external:*.ttf --external:*.otf"
+    "dev": "esbuild src/script.js src/style.css --bundle --watch --outdir=./",
+    "build": "esbuild src/script.js src/style.css --bundle --minify --outdir=./"
   },
   "devDependencies": {
     "esbuild": "^0.12.9"
+  },
+  "dependencies": {
+    "grilles": "^1.0.5"
   }
 }
+
+

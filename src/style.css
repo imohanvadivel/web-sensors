@@ -1,4 +1,4 @@
-@import "./Grid.css";
+@import "grilles/grille.css";
 
 :root {
   --baseSansFontSize: 14;
