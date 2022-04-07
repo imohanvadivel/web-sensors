@@ -12,7 +12,7 @@
     "esbuild": "^0.12.9"
   },
   "dependencies": {
-    "grilles": "^1.0.5"
+    "grilles": "^1.0.6"
   }
 }
 
